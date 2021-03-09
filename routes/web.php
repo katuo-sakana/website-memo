@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// 一覧ページ
 Route::get('/home', 'HomeController@index')->name('home');
+
+// 新規登録ページ
 Route::get('/page-register', 'HomeController@create')->name('page_register');
 Route::post('/page-register', 'HomeController@store');
+
+// 詳細ページ
+Route::get('/page-show/{pageid}', 'HomeController@show')->name('page_show');

@@ -19,10 +19,9 @@
                                     dy=".3em">Image cap</text>
                             </svg>
                             <div class="card-body">
-                                <h5 class="card-title">{{$page->title}}</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <h5 class="card-title">
+                                    <a href="{{route('page_show', ['pageid' => $page->id])}}">{{$page->title}}</a>
+                                </h5>
                             </div>
                         </div>
                         @endforeach

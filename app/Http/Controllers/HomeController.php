@@ -43,4 +43,10 @@ class HomeController extends Controller
         $page->save();
         return redirect()->route('home');
     }
+
+    public function show($pageid)
+    {
+        $page = Page::find($pageid);
+        return view('page_show', compact('page'));
+    }
 }
