@@ -39,6 +39,8 @@ class HomeController extends Controller
     {
         $user_id = Auth::id();
         $page->title = $request->title;
+        $page->site_url = $request->site_url;
+        $page->comment = $request->comment;
         $page->user_id = $user_id;
         $page->save();
         return redirect()->route('home');
