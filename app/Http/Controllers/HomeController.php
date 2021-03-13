@@ -37,9 +37,25 @@ class HomeController extends Controller
 
     public function store(Request $request, Page $page)
     {
+        $validatedData = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'site_image' => [
+                // アップロードされたファイルであること
+                'file',
+                // 画像ファイルであること
+                'image',
+                // MIMEタイプを指定
+                'mimes:jpeg,png',
+            ]
+        ]);
+
+        $image_path = $request->site_image->store('public');
+        $file_name = basename($image_path);
+
         $user_id = Auth::id();
         $page->title = $request->title;
         $page->site_url = $request->site_url;
+        $page->site_image = $file_name;
         $page->comment = $request->comment;
         $page->user_id = $user_id;
         $page->save();

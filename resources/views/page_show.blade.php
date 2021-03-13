@@ -8,6 +8,9 @@
                 <div class="card-header">{{$page->title}}</div>
 
                 <div class="card-body">
+                    @if (!empty($page->site_image))
+                    <img src="{{ asset('storage/' . $page->site_image) }}">
+                    @endif
                 </div>
             </div>
         </div>
