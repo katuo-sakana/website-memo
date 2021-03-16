@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $user_id = Auth::id();
         $pages = Page::where('user_id', $user_id)->get();
-        return view('home', compact('pages'));
+        return view('page_list', compact('pages'));
     }
 
     public function create()
