@@ -10942,3 +10942,35 @@ a.text-dark:focus {
   }
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.list-box-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.list-box-wrap::after {
+  content: "";
+  width: 32%;
+  height: 0;
+}
+
+.list-box {
+  width: 32%;
+  border: 1px solid #707070;
+  border-radius: 5px;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.list-box__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+

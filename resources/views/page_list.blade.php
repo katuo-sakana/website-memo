@@ -8,25 +8,25 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <div class="card-deck">
+                    <a class="btn btn-primary" href="{{ route('page_register') }}">新規ページをメモする</a>
+                    <div class="list-box-wrap">
                         @foreach ($pages as $page)
-                        <div class="card">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="200"
-                                xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                focusable="false" role="img" aria-label="Placeholder: Image cap">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%" fill="#dee2e6"
-                                    dy=".3em">Image cap</text>
-                            </svg>
-                            <div class="card-body">
-                                <h5 class="card-title">
+                        <div class="list-box">
+                            <div class="list-box__image">
+                                @if (!empty($page->site_image))
+                                <img src="{{ asset('storage/' . $page->site_image) }}">
+                                @else
+                                <img id="image" src="https://placehold.jp/200x200.png">
+                                @endif
+                            </div>
+                            <div class="list-box__content">
+                                <h5 class="list-box__title">
                                     <a href="{{route('page_show', ['pageid' => $page->id])}}">{{$page->title}}</a>
                                 </h5>
                             </div>
                         </div>
                         @endforeach
                     </div>
-                    <a class="btn btn-primary" href="{{ route('page_register') }}">新規ページをメモする</a>
                 </div>
             </div>
         </div>
