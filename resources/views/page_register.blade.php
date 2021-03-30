@@ -43,6 +43,14 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="site_tag" class="col-md-4 col-form-label text-md-right">タグを追加する</label>
+
+                            <div class="col-md-6">
+                                <article-tags-input></article-tags-input>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="site_image" class="col-md-4 col-form-label text-md-right">画像</label>
 
                             <div class="col-md-6">
