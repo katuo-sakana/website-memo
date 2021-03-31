@@ -15,12 +15,12 @@ class CreatePageTagTable extends Migration
     {
         Schema::create('page_tag', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('page_id');
+            $table->unsignedBigInteger('page_id');
             $table->foreign('page_id')
                 ->references('id')
                 ->on('pages')
                 ->onDelete('cascade');
-            $table->bigInteger('tag_id');
+            $table->unsignedBigInteger('tag_id');
             $table->foreign('tag_id')
                 ->references('id')
                 ->on('tags')
