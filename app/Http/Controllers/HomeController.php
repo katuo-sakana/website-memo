@@ -46,7 +46,8 @@ class HomeController extends Controller
                 'image',
                 // MIMEタイプを指定
                 'mimes:jpeg,png',
-            ]
+            ],
+            'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ]);
 
         $image_path = $request->site_image->store('public');
