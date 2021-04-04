@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Page;
+use App\Tag;
 
 class HomeController extends Controller
 {
@@ -50,12 +51,6 @@ class HomeController extends Controller
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ]);
 
-        $tags = collect(json_decode($request->tags))
-            ->slice(0, 5) // コレクションの要素が6個以上あったとしても、最初の5個だけが残る
-            ->map(function ($requestTag) {
-                return $requestTag->text; // key(text)だけの形に変換する。
-            });
-
         $file_name = '';
         if (isset($request->site_image)) {
             $image_path = $request->site_image->store('public');
@@ -69,6 +64,17 @@ class HomeController extends Controller
         $page->comment = $request->comment;
         $page->user_id = $user_id;
         $page->save();
+
+        $tags = collect(json_decode($request->tags))
+            ->slice(0, 5) // コレクションの要素が6個以上あったとしても、最初の5個だけが残る
+            ->map(function ($requestTag) {
+                return $requestTag->text; // key(text)だけの形に変換する。
+            });
+        $tags->each(function ($tagName) use ($page) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $page->tags()->attach($tag); // page_tagテーブルへのレコードの保存
+        });
+
         return redirect()->route('home');
     }
 
