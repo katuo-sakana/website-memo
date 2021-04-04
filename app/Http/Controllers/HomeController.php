@@ -50,8 +50,15 @@ class HomeController extends Controller
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ]);
 
+        $tags = collect(json_decode($request->tags))
+            ->slice(0, 5) // コレクションの要素が6個以上あったとしても、最初の5個だけが残る
+            ->map(function ($requestTag) {
+                return $requestTag->text; // key(text)だけの形に変換する。
+            });
+
         $image_path = $request->site_image->store('public');
         $file_name = basename($image_path);
+
 
         $user_id = Auth::id();
         $page->title = $request->title;
