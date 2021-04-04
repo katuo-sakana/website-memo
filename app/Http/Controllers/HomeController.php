@@ -56,9 +56,11 @@ class HomeController extends Controller
                 return $requestTag->text; // key(text)だけの形に変換する。
             });
 
-        $image_path = $request->site_image->store('public');
-        $file_name = basename($image_path);
-
+        $file_name = '';
+        if (isset($request->site_image)) {
+            $image_path = $request->site_image->store('public');
+            $file_name = basename($image_path); // 「public/」を削除して画像名だけを残す
+        }
 
         $user_id = Auth::id();
         $page->title = $request->title;
