@@ -20,6 +20,11 @@
                                 @endif
                             </div>
                             <div class="list-box__content">
+                                @foreach ($page->tags as $tag)
+                                <a href="">
+                                    {{$tag->name}}
+                                </a>
+                                @endforeach
                                 <h5 class="list-box__title">
                                     <a href="{{route('page_show', ['pageid' => $page->id])}}">{{$page->title}}</a>
                                 </h5>
