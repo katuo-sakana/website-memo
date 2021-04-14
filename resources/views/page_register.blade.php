@@ -16,7 +16,7 @@
 
                 <div class="col-md-6">
                   <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                    value="{{ old('title') }}" autocomplete="title" autofocus>
+                    value="{{ $page->title ?? old('title') }}" autocomplete="title" autofocus>
 
                   @error('title')
                     <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
 
                 <div class="col-md-6">
                   <input id="site_url" type="url" class="form-control @error('site_url') is-invalid @enderror"
-                    name="site_url" value="{{ old('site_url') }}" autocomplete="site_url" autofocus>
+                    name="site_url" value="{{ $page->site_url ?? old('site_url') }}" autocomplete="site_url" autofocus>
 
                   @error('site_url')
                     <span class="invalid-feedback" role="alert">

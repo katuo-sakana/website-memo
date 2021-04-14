@@ -83,4 +83,14 @@ class HomeController extends Controller
         $page = Page::find($pageid);
         return view('page_show', compact('page'));
     }
+
+    public function edit($pageid)
+    {
+        $page = Page::find($pageid);
+        return view('page_register', compact('page'));
+    }
+
+    public function update(Request $request, Page $page)
+    {
+    }
 }

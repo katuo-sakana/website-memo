@@ -6,7 +6,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">{{ $page->title }}</div>
-
+          <a class="btn btn-primary" href="{{ route('page_edit', [$page->id]) }}">編集する</a>
           <div class="card-body">
             @if (!empty($page->site_image))
               <img src="{{ asset('storage/' . $page->site_image) }}">

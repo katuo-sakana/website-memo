@@ -26,3 +26,7 @@ Route::post('/page-register', 'HomeController@store');
 
 // 詳細ページ
 Route::get('/page-show/{pageid}', 'HomeController@show')->name('page_show');
+
+// 編集ページ
+Route::get('/page-show/{pageid}/edit', 'HomeController@edit')->name('page_edit');
+Route::post('/page-show/{pageid}/edit', 'HomeController@update');
