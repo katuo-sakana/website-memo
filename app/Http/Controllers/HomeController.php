@@ -31,6 +31,13 @@ class HomeController extends Controller
         return view('page_list', compact('pages'));
     }
 
+    public function tagsList($tag_name)
+    {
+        $user_id = Auth::id();
+        $pages = Page::where('user_id', $user_id)->whereTag($tag_name)->get();
+        return view('page_list', compact('pages', 'tag_name'));
+    }
+
     public function create()
     {
         return view('page_register');

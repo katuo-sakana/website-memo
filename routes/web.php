@@ -20,6 +20,9 @@ Auth::routes();
 // 一覧ページ
 Route::get('/home', 'HomeController@index')->name('home');
 
+// タグ一覧ページ
+Route::get('/tags/{tag_name}', 'HomeController@tagsList')->name('tags_list');
+
 // 新規登録ページ
 Route::get('/page-register', 'HomeController@create')->name('page_register');
 Route::post('/page-register', 'HomeController@store');

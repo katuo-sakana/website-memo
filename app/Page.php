@@ -12,4 +12,12 @@ class Page extends Model
     {
         return $this->belongsToMany('App\Tag', 'page_tag')->withTimestamps();
     }
+
+    public function scopeWhereTag($query, $tag_name)
+    {
+        // 多対多の検索
+        return $query->whereHas('tags', function ($query) use ($tag_name) {
+            $query->where('tags.name', $tag_name);
+        });
+    }
 }
