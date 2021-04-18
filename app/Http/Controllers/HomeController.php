@@ -87,10 +87,49 @@ class HomeController extends Controller
     public function edit($pageid)
     {
         $page = Page::find($pageid);
-        return view('page_register', compact('page'));
+
+        // タグ情報取得
+        $tagNames = $page->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('page_register', compact('page', 'tagNames'));
     }
 
-    public function update(Request $request, Page $page)
+    public function update(Request $request, $pageid)
     {
+        $page = Page::find($pageid);
+
+        $validatedData = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'site_image' => [
+                // アップロードされたファイルであること
+                'file',
+                // 画像ファイルであること
+                'image',
+                // MIMEタイプを指定
+                'mimes:jpeg,png',
+            ],
+            'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
+        ]);
+
+        if (isset($request->site_image)) {
+            $image_path = $request->site_image->store('public');
+            $file_name = basename($image_path); // 「public/」を削除して画像名だけを残す
+            $page->site_image = $file_name;
+        }
+
+        $page->title = $request->title;
+        $page->site_url = $request->site_url;
+        $page->comment = $request->comment;
+        $page->save();
+
+        $page->tags()->detach();
+        $request->tags->each(function ($tagName) use ($page) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $page->tags()->attach($tag);
+        });
+
+        return redirect()->route('home');
     }
 }

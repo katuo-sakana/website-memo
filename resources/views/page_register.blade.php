@@ -45,7 +45,7 @@
                 <label for="site_tag" class="col-md-4 col-form-label text-md-right">タグを追加する</label>
 
                 <div class="col-md-6">
-                  <article-tags-input></article-tags-input>
+                  <article-tags-input :initial-tags='@json($tagNames ?? [])'></article-tags-input>
                   @if ($errors->has('tags'))
                     <span class="text-danger small">
                       {{ $errors->first('tags') }}
