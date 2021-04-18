@@ -22,7 +22,7 @@
                   <div class="list-box__content">
                     @foreach ($page->tags as $tag)
                       <a href="">
-                        {{ $tag->name }}
+                        {{ $tag->hashtag }}
                       </a>
                     @endforeach
                     <h5 class="list-box__title">

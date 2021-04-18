@@ -13,7 +13,7 @@
             @endif
             @foreach ($page->tags as $tag)
               <a href="">
-                {{ $tag->name }}
+                {{ $tag->hashtag }}
               </a>
             @endforeach
             @if (!empty($page->site_url))
