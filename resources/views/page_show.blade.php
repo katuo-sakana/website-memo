@@ -11,6 +11,11 @@
             @if (!empty($page->site_image))
               <img src="{{ asset('storage/' . $page->site_image) }}">
             @endif
+            @foreach ($page->tags as $tag)
+              <a href="">
+                {{ $tag->name }}
+              </a>
+            @endforeach
             @if (!empty($page->site_url))
               <a href="{{ $page->site_url }}" target="_blank">{{ $page->site_url }}</a>
             @endif
