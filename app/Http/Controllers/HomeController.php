@@ -40,7 +40,12 @@ class HomeController extends Controller
 
     public function create()
     {
-        return view('page_register');
+        // タグ情報自動保管のためにタグ情報を全取得
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('page_register', compact('allTagNames'));
     }
 
     public function store(Request $request, Page $page)
@@ -100,7 +105,12 @@ class HomeController extends Controller
             return ['text' => $tag->name];
         });
 
-        return view('page_register', compact('page', 'tagNames'));
+        // タグ情報自動保管のためにタグ情報を全取得
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('page_register', compact('page', 'tagNames', 'allTagNames'));
     }
 
     public function update(Request $request, $pageid)
