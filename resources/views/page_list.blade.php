@@ -26,7 +26,7 @@
                   </div>
                   <div class="list-box__content">
                     @foreach ($page->tags as $tag)
-                      <a href="{{ route('tags_list', ['tag_name' => $tag->name]) }}">
+                      <a class="tag" href="{{ route('tags_list', ['tag_name' => $tag->name]) }}">
                         {{ $tag->hashtag }}
                       </a>
                     @endforeach
