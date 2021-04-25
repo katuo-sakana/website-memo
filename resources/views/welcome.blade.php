@@ -41,6 +41,8 @@
       </div>
     </nav>
 
+    <h1 class="text-center mt-4">Webサイトのメモ帳として</h1>
+
   </div>
 </body>
 
