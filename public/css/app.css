@@ -10963,6 +10963,10 @@ img {
   text-decoration: none;
 }
 
+.card {
+  width: 100%;
+}
+
 .list-box-wrap {
   display: flex;
   flex-wrap: wrap;
