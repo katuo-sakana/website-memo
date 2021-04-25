@@ -20,7 +20,7 @@
                   @if (!empty($page->site_image))
                     <img src="{{ asset('storage/' . $page->site_image) }}">
                   @else
-                    <img id="image" src="https://placehold.jp/200x200.png">
+                    <img src="{{ asset('images/noimage.png') }}">
                   @endif
                 </div>
                 <div class="list-box__content">
