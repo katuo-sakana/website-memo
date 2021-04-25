@@ -2,7 +2,7 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: "Nunito", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -17,3 +17,45 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+$base_size: 16;
+
+$breakpoints: (
+  "sm": "screen and (max-width: 480px)",
+  "md": "screen and (max-width: 768px)",
+  "lg": "screen and (max-width: 1024px)",
+  "xl": "screen and (max-width: 1140px)",
+  "xxl": "screen and (max-width: 1540px)",
+  "max": "screen and (max-width: 1900px)"
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin fontSize($font_size, $parent_font_size: $base_size) {
+  $font_size_em: #{($font_size/$parent_font_size)}em;
+  font-size: $font_size_em;
+}
+
+// 単位がついてた際に削除
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+// remに変換
+@function rem($px, $base: $base_size) {
+  // 単位がついてた際に削除
+  $px: strip-unit($px);
+  $base: strip-unit($base);
+
+  $value: $px / $base * 1rem;
+
+  @return $value;
+}
