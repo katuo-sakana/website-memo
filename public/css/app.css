@@ -10972,6 +10972,10 @@ a:hover img {
   opacity: 0.8;
 }
 
+p {
+  margin-bottom: 0;
+}
+
 .width-base {
   max-width: 1140px;
   width: 100%;
@@ -11091,5 +11095,23 @@ img {
 
 .list-box__title-link:hover {
   color: #333;
+}
+
+.show-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.875rem;
+}
+
+.show-content__primary {
+  width: 65%;
+}
+
+.show-content__secondary {
+  width: 30%;
+}
+
+.site-url {
+  margin-top: 1.25rem;
 }
 

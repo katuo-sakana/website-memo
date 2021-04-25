@@ -57,3 +57,22 @@
     color: #333;
   }
 }
+
+// 詳細ページ
+.show-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: rem(30px);
+}
+
+.show-content__primary {
+  width: 65%;
+}
+
+.show-content__secondary {
+  width: 30%;
+}
+
+.site-url {
+  margin-top: rem(20px);
+}
