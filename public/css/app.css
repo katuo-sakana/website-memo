@@ -11115,3 +11115,7 @@ img {
   margin-top: 1.25rem;
 }
 
+.custom-file-label::after {
+  content: "\9078\629E";
+}
+

@@ -76,3 +76,8 @@
 .site-url {
   margin-top: rem(20px);
 }
+
+// 新規・編集
+.custom-file-label::after {
+  content: "選択";
+}

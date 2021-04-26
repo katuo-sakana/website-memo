@@ -61,6 +61,10 @@
       @yield('content')
     </main>
   </div>
+
+  {{-- 画像クリア機能 --}}
+  @yield('file-script')
+
 </body>
 
 </html>
