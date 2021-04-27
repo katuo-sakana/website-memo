@@ -6,7 +6,7 @@
       <div class="card-header">新規作成</div>
 
       <div class="card-body">
-        <form method="POST" action="{{ route('page_register') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ url()->current() }}" enctype="multipart/form-data">
           @csrf
 
           <div class="form-group row">

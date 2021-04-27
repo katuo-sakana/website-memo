@@ -142,7 +142,12 @@ class HomeController extends Controller
         $page->save();
 
         $page->tags()->detach();
-        $request->tags->each(function ($tagName) use ($page) {
+        $tags = collect(json_decode($request->tags))
+            ->slice(0, 5) // コレクションの要素が6個以上あったとしても、最初の5個だけが残る
+            ->map(function ($requestTag) {
+                return $requestTag->text; // key(text)だけの形に変換する。
+            });
+        $tags->each(function ($tagName) use ($page) {
             $tag = Tag::firstOrCreate(['name' => $tagName]);
             $page->tags()->attach($tag);
         });
