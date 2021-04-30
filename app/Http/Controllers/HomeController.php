@@ -87,7 +87,7 @@ class HomeController extends Controller
             $page->tags()->attach($tag); // page_tagテーブルへのレコードの保存
         });
 
-        return redirect()->route('home');
+        return redirect()->route('page_show', ['pageid' => $page->id]);
     }
 
     public function show($pageid)
@@ -161,6 +161,6 @@ class HomeController extends Controller
             $page->tags()->attach($tag);
         });
 
-        return redirect()->route('home');
+        return redirect()->route('page_show', ['pageid' => $page->id]);
     }
 }
