@@ -93,7 +93,16 @@ class HomeController extends Controller
     public function show($pageid)
     {
         $page = Page::find($pageid);
-        return view('page_show', compact('page'));
+
+        // タグ情報取得
+        $tagNames = $page->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+        $user_id = Auth::id();
+        // 同じタグが設定してある記事一覧を取得
+        $relationTagpages = Page::where('user_id', $user_id)->whereTagPage($tagNames)->get();
+
+        return view('page_show', compact('page', 'relationTagpages'));
     }
 
     public function edit($pageid)
@@ -105,7 +114,7 @@ class HomeController extends Controller
             return ['text' => $tag->name];
         });
 
-        // タグ情報自動保管のためにタグ情報を全取得
+        // タグ情報自動補完のためにタグ情報を全取得
         $allTagNames = Tag::all()->map(function ($tag) {
             return ['text' => $tag->name];
         });

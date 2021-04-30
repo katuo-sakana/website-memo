@@ -20,4 +20,11 @@ class Page extends Model
             $query->where('tags.name', $tag_name);
         });
     }
+
+    public function scopeWhereTagPage($query, $tagNames)
+    {
+        return $query->whereHas('tags', function ($query) use ($tagNames) {
+            $query->whereIn('tags.name', $tagNames);
+        });
+    }
 }

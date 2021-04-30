@@ -34,6 +34,37 @@
           </div>
           <div class="show-content__secondary">
             <h2>関連ページ</h2>
+            <div class="tag-page-box-wrap">
+              @foreach ($relationTagpages as $page)
+                <div class="tag-page-box">
+                  <div class="tag-page-box__image">
+                    @if (!empty($page->site_image))
+                      <a href="{{ route('page_show', ['pageid' => $page->id]) }}">
+                        <img src="{{ asset('storage/' . $page->site_image) }}">
+                      </a>
+                    @else
+                      <a href="{{ route('page_show', ['pageid' => $page->id]) }}">
+                        <img src="{{ asset('images/noimage.png') }}">
+                      </a>
+                    @endif
+                  </div>
+                  <div class="tag-page-box__content">
+                    <p class="tag-page-box__title">
+                      <a class="tag-page-box__title-link"
+                        href="{{ route('page_show', ['pageid' => $page->id]) }}">{{ $page->title }}</a>
+                    </p>
+                    <p class="tag-page-box__comment">
+                      {!! nl2br(e(Str::limit($page->comment, 70))) !!}
+                    </p>
+                    @foreach ($page->tags as $tag)
+                      <a class="tag" href="{{ route('tags_list', ['tag_name' => $tag->name]) }}">
+                        {{ $tag->hashtag }}
+                      </a>
+                    @endforeach
+                  </div>
+                </div>
+              @endforeach
+            </div>
           </div>
         </div>
 

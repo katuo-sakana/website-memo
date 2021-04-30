@@ -11104,15 +11104,42 @@ img {
 }
 
 .show-content__primary {
-  width: 65%;
+  width: 60%;
 }
 
 .show-content__secondary {
-  width: 30%;
+  width: 37%;
 }
 
 .site-url {
   margin-top: 1.25rem;
+}
+
+.tag-page-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.625rem;
+}
+
+.tag-page-box__image {
+  width: 27%;
+}
+
+.tag-page-box__content {
+  width: 70%;
+}
+
+.tag-page-box__title-link {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.tag-page-box__title-link:hover {
+  color: #333;
+}
+
+.tag-page-box__comment {
+  font-size: 0.875rem;
 }
 
 .custom-file-label::after {

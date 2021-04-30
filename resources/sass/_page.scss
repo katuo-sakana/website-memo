@@ -66,15 +66,41 @@
 }
 
 .show-content__primary {
-  width: 65%;
+  width: 60%;
 }
 
 .show-content__secondary {
-  width: 30%;
+  width: 37%;
 }
 
 .site-url {
   margin-top: rem(20px);
+}
+
+.tag-page-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: rem(10px);
+}
+
+.tag-page-box__image {
+  width: 27%;
+}
+
+.tag-page-box__content {
+  width: 70%;
+}
+
+.tag-page-box__title-link {
+  font-size: rem(20px);
+  color: #333;
+  &:hover {
+    color: #333;
+  }
+}
+
+.tag-page-box__comment {
+  font-size: rem(14px);
 }
 
 // 新規・編集
