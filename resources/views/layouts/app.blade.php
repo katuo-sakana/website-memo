@@ -65,6 +65,9 @@
   {{-- 画像クリア機能 --}}
   @yield('file-script')
 
+  {{-- 送信確認機能 --}}
+  @yield('submit_check')
+
 </body>
 
 </html>

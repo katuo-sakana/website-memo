@@ -8,6 +8,13 @@
           <a class="btn btn-success page-navigation__item" href="{{ route('home') }}">一覧へ戻る</a>
           <a class="btn btn-secondary page-navigation__item" href="{{ route('page_edit', [$page->id]) }}">編集する</a>
           <a class="btn btn-primary page-navigation__item" href="{{ route('page_register') }}">新規ページをメモする</a>
+          <form method="POST" class="page-navigation__item" action="{{ route('page_delete', [$page->id]) }}"
+            onSubmit="return submitCheck('delete')">
+            @csrf
+            <button type="submit" class="btn btn-danger">
+              削除する
+            </button>
+          </form>
         </div>
         <div class="show-content">
           <div class="show-content__primary">
@@ -71,4 +78,8 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('submit_check')
+  @include('components.submit_check')
 @endsection

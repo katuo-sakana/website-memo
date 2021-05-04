@@ -42,7 +42,7 @@ img {
 }
 
 .page-navigation__item {
-  &:not(:last-of-type) {
+  &:not(:last-child) {
     margin-right: rem(10px);
   }
 }

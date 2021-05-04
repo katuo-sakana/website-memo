@@ -163,4 +163,11 @@ class HomeController extends Controller
 
         return redirect()->route('page_show', ['pageid' => $page->id]);
     }
+
+    public function delete($pageid)
+    {
+        Page::destroy($pageid);
+
+        return redirect()->route('home');
+    }
 }

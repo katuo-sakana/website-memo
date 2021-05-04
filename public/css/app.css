@@ -10995,7 +10995,7 @@ img {
   flex-wrap: wrap;
 }
 
-.page-navigation__item:not(:last-of-type) {
+.page-navigation__item:not(:last-child) {
   margin-right: 0.625rem;
 }
 
