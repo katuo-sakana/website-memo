@@ -5,8 +5,8 @@
     <div class="card">
       <div class="card-body">
         <div class="page-navigation">
-          <a class="btn btn-primary page-navigation__item" href="{{ route('home') }}">一覧へ戻る</a>
-          <a class="btn btn-primary page-navigation__item" href="{{ route('page_edit', [$page->id]) }}">編集する</a>
+          <a class="btn btn-success page-navigation__item" href="{{ route('home') }}">一覧へ戻る</a>
+          <a class="btn btn-secondary page-navigation__item" href="{{ route('page_edit', [$page->id]) }}">編集する</a>
           <a class="btn btn-primary page-navigation__item" href="{{ route('page_register') }}">新規ページをメモする</a>
         </div>
         <div class="show-content">
