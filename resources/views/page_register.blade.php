@@ -3,7 +3,13 @@
 @section('content')
   <div class="width-base">
     <div class="card">
-      <div class="card-header">新規作成</div>
+      <div class="card-header">
+        @isset($page)
+          編集
+        @else
+          新規作成
+        @endisset
+      </div>
 
       <div class="card-body">
         <div class="page-navigation">
