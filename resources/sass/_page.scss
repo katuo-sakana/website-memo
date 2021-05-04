@@ -10,7 +10,7 @@
     @include mq(md) {
       width: 32%;
     }
-    @include mq(md) {
+    @include mq(sm) {
       content: none;
     }
   }
@@ -34,7 +34,7 @@
     width: 32%;
   }
   @include mq(sm) {
-    width: 49%;
+    width: 48%;
   }
 }
 
@@ -47,6 +47,9 @@
     object-fit: cover;
     width: 100%;
     height: rem(200px);
+    @include mq(md) {
+      height: rem(150px);
+    }
   }
 }
 
@@ -63,14 +66,24 @@
   display: flex;
   justify-content: space-between;
   padding-top: rem(30px);
+  @include mq(sm) {
+    display: block;
+  }
 }
 
 .show-content__primary {
   width: 60%;
+  @include mq(sm) {
+    width: 100%;
+  }
 }
 
 .show-content__secondary {
   width: 37%;
+  @include mq(sm) {
+    width: 100%;
+    margin-top: rem(50px);
+  }
 }
 
 .site-url {
