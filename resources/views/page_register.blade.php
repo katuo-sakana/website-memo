@@ -6,6 +6,9 @@
       <div class="card-header">新規作成</div>
 
       <div class="card-body">
+        <div class="page-navigation">
+          <a class="btn btn-primary page-navigation__item" href="{{ route('home') }}">一覧へ戻る</a>
+        </div>
         <form method="POST" action="{{ url()->current() }}" enctype="multipart/form-data">
           @csrf
 
