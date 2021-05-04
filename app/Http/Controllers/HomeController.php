@@ -63,7 +63,7 @@ class HomeController extends Controller
             'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ]);
 
-        $file_name = '';
+        $file_name = null;
         if (isset($request->site_image)) {
             $image_path = $request->site_image->store('public');
             $file_name = basename($image_path); // 「public/」を削除して画像名だけを残す

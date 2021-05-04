@@ -69,10 +69,19 @@
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="validatedCustomFile" name="site_image">
                 <label class="custom-file-label" for="validatedCustomFile">ファイル選択してください</label>
-                {{-- <div class="invalid-feedback">Example invalid custom file feedback</div> --}}
               </div>
             </div>
           </div>
+
+          @isset($page->site_image)
+            <div class="form-group row">
+              <label for="site_image" class="col-md-3 col-form-label text-md-right">現在設定されている画像</label>
+
+              <div class="col-md-7">
+                <img src="{{ asset('storage/' . $page->site_image) }}" width="200" height="auto">
+              </div>
+            </div>
+          @endisset
 
           <div class="form-group row">
             <label for="comment" class="col-md-3 col-form-label text-md-right">コメントする</label>
