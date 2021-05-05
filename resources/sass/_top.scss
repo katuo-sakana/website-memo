@@ -1,0 +1,20 @@
+.toppage {
+  background-color: #fff;
+}
+
+.top-main {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  @include mq(md) {
+    display: block;
+  }
+}
+
+.top-main__secondary {
+  @include mq(md) {
+    text-align: center;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}

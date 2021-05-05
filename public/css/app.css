@@ -11021,6 +11021,30 @@ img {
   width: 100%;
 }
 
+.toppage {
+  background-color: #fff;
+}
+
+.top-main {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 768px) {
+  .top-main {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-main__secondary {
+    text-align: center;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
 .list-box-wrap {
   display: flex;
   flex-wrap: wrap;

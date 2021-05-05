@@ -3,9 +3,9 @@
 
 @include('components.head')
 
-<body>
+<body class="toppage">
   <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
           <img src="{{ asset('images/logo.png') }}" width="200" height="52">
@@ -16,33 +16,42 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Left Side Of Navbar -->
-          <ul class="navbar-nav mr-auto">
-
-          </ul>
-
           <!-- Right Side Of Navbar -->
           <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              <li class="nav-item mr-2">
+                <a class="btn btn-outline-secondary" href="{{ route('login') }}">{{ __('Login') }}</a>
               </li>
               @if (Route::has('register'))
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  <a class="btn btn-outline-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
               @endif
             @else
-              <a href="{{ url('/home') }}">Home</a>
+              <a class="btn btn-secondary" href="{{ url('/home') }}">一覧に戻る</a>
             @endguest
           </ul>
         </div>
       </div>
     </nav>
 
-    <h1 class="text-center mt-4">Webサイトのメモ帳として</h1>
-
+    <div class="top-main">
+      <div class="top-main__primary pt-5">
+        <h1 class="text-center mt-5 font-weight-bold">Webページのちょっとしたメモに。</h1>
+        {{-- <div class="text-center mt-5"><img src="{{ asset('images/logo.png') }}" width="400" height="auto"></div> --}}
+        <p class="text-center mt-5">気になったWebサイトのメモ帳としてお使いください。</p>
+        <div class="mt-5 text-center"><a class="btn btn-outline-success"
+            href="{{ route('register') }}">無料でページのメモをする</a>
+        </div>
+      </div>
+      <div class="top-main__secondary">
+        <div class="top-main__image">
+          <img src="{{ asset('images/main_illustration.png') }}" width="400" height="auto">
+          {{-- URL:http://tech-pic.com/ --}}
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 
