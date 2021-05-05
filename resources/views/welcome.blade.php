@@ -21,6 +21,12 @@
             <!-- Authentication Links -->
             @guest
               <li class="nav-item mr-2">
+                <a href="{{ route('login.guest') }}" class="btn btn-success">
+                  ゲストログイン
+                </a>
+              </li>
+
+              <li class="nav-item mr-2">
                 <a class="btn btn-outline-secondary" href="{{ route('login') }}">{{ __('Login') }}</a>
               </li>
               @if (Route::has('register'))

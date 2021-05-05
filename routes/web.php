@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// ゲストユーザーログイン
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
+
 // 一覧ページ
 Route::get('/home', 'HomeController@index')->name('home');
 
