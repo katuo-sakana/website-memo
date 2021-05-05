@@ -39,7 +39,6 @@
     <div class="top-main">
       <div class="top-main__primary pt-5">
         <h1 class="text-center mt-5 font-weight-bold">Webページのちょっとしたメモに。</h1>
-        {{-- <div class="text-center mt-5"><img src="{{ asset('images/logo.png') }}" width="400" height="auto"></div> --}}
         <p class="text-center mt-5">気になったWebサイトのメモ帳としてお使いください。</p>
         <div class="mt-5 text-center"><a class="btn btn-outline-success"
             href="{{ route('register') }}">無料でページのメモをする</a>
@@ -48,7 +47,6 @@
       <div class="top-main__secondary">
         <div class="top-main__image">
           <img src="{{ asset('images/main_illustration.png') }}" width="400" height="auto">
-          {{-- URL:http://tech-pic.com/ --}}
         </div>
       </div>
     </div>
