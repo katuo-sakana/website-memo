@@ -54,6 +54,7 @@
             <div class="col-md-7">
               <article-tags-input :initial-tags='@json($tagNames ?? [])' :autocomplete-items='@json($allTagNames ?? [])'>
               </article-tags-input>
+              <small>※同じサイトで複数メモを取る場合などにサイト名をいれていただくと、絞り込みのとき便利です。</small>
               @if ($errors->has('tags'))
                 <span class="text-danger small">
                   {{ $errors->first('tags') }}
