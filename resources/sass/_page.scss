@@ -54,7 +54,6 @@
 }
 
 .list-box__title-link {
-  font-size: rem(20px);
   color: #333;
   &:hover {
     color: #333;
@@ -88,6 +87,10 @@
 
 .site-url {
   margin-top: rem(20px);
+}
+
+.show-content__comment {
+  margin-top: rem(30px);
 }
 
 .tag-page-box {

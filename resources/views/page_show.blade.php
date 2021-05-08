@@ -22,7 +22,7 @@
             @if (!empty($page->site_image))
               <img src="{{ asset('storage/' . $page->site_image) }}">
             @endif
-            <div class="tag-wrap">
+            <div class="tag-wrap mt-3">
               @foreach ($page->tags as $tag)
                 <a class="tag" href="{{ route('tags_list', ['tag_name' => $tag->name]) }}">
                   {{ $tag->hashtag }}
@@ -36,7 +36,7 @@
               </div>
             @endif
             @if (!empty($page->comment))
-              <div href="{{ $page->comment }}">{{ $page->comment }}</div>
+              <div class="show-content__comment">{{ $page->comment }}</div>
             @endif
           </div>
           <div class="show-content__secondary">
@@ -60,9 +60,9 @@
                       <a class="tag-page-box__title-link"
                         href="{{ route('page_show', ['pageid' => $page->id]) }}">{{ $page->title }}</a>
                     </p>
-                    <p class="tag-page-box__comment">
+                    <div class="tag-page-box__comment">
                       {!! nl2br(e(Str::limit($page->comment, 70))) !!}
-                    </p>
+                    </div>
                     @foreach ($page->tags as $tag)
                       <a class="tag" href="{{ route('tags_list', ['tag_name' => $tag->name]) }}">
                         {{ $tag->hashtag }}

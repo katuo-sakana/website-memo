@@ -11119,7 +11119,6 @@ img {
 }
 
 .list-box__title-link {
-  font-size: 1.25rem;
   color: #333;
 }
 
@@ -11162,6 +11161,10 @@ img {
 
 .site-url {
   margin-top: 1.25rem;
+}
+
+.show-content__comment {
+  margin-top: 1.875rem;
 }
 
 .tag-page-box {
