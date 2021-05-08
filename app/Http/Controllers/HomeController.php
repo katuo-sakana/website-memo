@@ -28,6 +28,7 @@ class HomeController extends Controller
     {
         $user_id = Auth::id();
         $pages = Page::where('user_id', $user_id)->get();
+        $pages = $pages->sortByDesc('created_at')->values()->all(); // 降順にソート
         return view('page_list', compact('pages'));
     }
 
@@ -35,6 +36,7 @@ class HomeController extends Controller
     {
         $user_id = Auth::id();
         $pages = Page::where('user_id', $user_id)->whereTag($tag_name)->get();
+        $pages = $pages->sortByDesc('created_at')->values()->all(); // 降順にソート
         return view('page_list', compact('pages', 'tag_name'));
     }
 
