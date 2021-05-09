@@ -42,8 +42,9 @@ class HomeController extends Controller
 
     public function create()
     {
-        // タグ情報自動保管のためにタグ情報を全取得
-        $allTagNames = Tag::all()->map(function ($tag) {
+        $user_id = Auth::id();
+        // タグ情報自動補完のためにログインしているユーザーのタグ報を全取得
+        $allTagNames = Tag::where('user_id', $user_id)->get()->map(function ($tag) {
             return ['text' => $tag->name];
         });
 
@@ -84,8 +85,8 @@ class HomeController extends Controller
             ->map(function ($requestTag) {
                 return $requestTag->text; // key(text)だけの形に変換する。
             });
-        $tags->each(function ($tagName) use ($page) {
-            $tag = Tag::firstOrCreate(['name' => $tagName]);
+        $tags->each(function ($tagName) use ($page, $user_id) {
+            $tag = Tag::firstOrCreate(['name' => $tagName, 'user_id' => $user_id]);
             $page->tags()->attach($tag); // page_tagテーブルへのレコードの保存
         });
 
@@ -109,6 +110,7 @@ class HomeController extends Controller
 
     public function edit($pageid)
     {
+        $user_id = Auth::id();
         $page = Page::find($pageid);
 
         // タグ情報取得
@@ -116,8 +118,8 @@ class HomeController extends Controller
             return ['text' => $tag->name];
         });
 
-        // タグ情報自動補完のためにタグ情報を全取得
-        $allTagNames = Tag::all()->map(function ($tag) {
+        // タグ情報自動補完のためにログインしているユーザーのタグ報を全取得
+        $allTagNames = Tag::where('user_id', $user_id)->get()->map(function ($tag) {
             return ['text' => $tag->name];
         });
 
@@ -126,6 +128,7 @@ class HomeController extends Controller
 
     public function update(Request $request, $pageid)
     {
+        $user_id = Auth::id();
         $page = Page::find($pageid);
 
         $validatedData = $request->validate([
@@ -158,8 +161,8 @@ class HomeController extends Controller
             ->map(function ($requestTag) {
                 return $requestTag->text; // key(text)だけの形に変換する。
             });
-        $tags->each(function ($tagName) use ($page) {
-            $tag = Tag::firstOrCreate(['name' => $tagName]);
+        $tags->each(function ($tagName) use ($page, $user_id) {
+            $tag = Tag::firstOrCreate(['name' => $tagName, 'user_id' => $user_id]);
             $page->tags()->attach($tag);
         });
 
