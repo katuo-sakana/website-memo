@@ -10985,6 +10985,12 @@ p {
   margin-left: auto;
 }
 
+@media screen and (max-width: 768px) {
+  .pc {
+    display: none;
+  }
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -11042,6 +11048,78 @@ img {
     text-align: center;
     padding-left: 3%;
     padding-right: 3%;
+  }
+}
+
+.section-base {
+  margin-top: 8.75rem;
+}
+
+@media screen and (max-width: 480px) {
+  .section-base {
+    margin-top: 5.625rem;
+  }
+}
+
+.section-base__title {
+  font-size: 2.25rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  .section-base__title {
+    font-size: 1.875rem;
+  }
+}
+
+.top-about {
+  display: flex;
+  width: 800px;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2.5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .top-about {
+    display: block;
+  }
+}
+
+.top-about__primary {
+  flex: 1;
+  padding-right: 3.125rem;
+  padding-top: 1.875rem;
+}
+
+@media screen and (max-width: 480px) {
+  .top-about__primary {
+    padding-right: 0;
+    padding-top: 0;
+  }
+}
+
+.top-about__secondary {
+  width: 13.4375rem;
+}
+
+@media screen and (max-width: 480px) {
+  .top-about__secondary {
+    width: 100%;
+    text-align: center;
+    margin-top: 1.875rem;
+  }
+}
+
+.top-about-description {
+  line-height: 2.4;
+}
+
+@media screen and (max-width: 480px) {
+  .top-about-description {
+    font-size: 1.125rem;
   }
 }
 

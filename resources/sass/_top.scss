@@ -18,3 +18,59 @@
     padding-right: 3%;
   }
 }
+
+// 共通
+.section-base {
+  margin-top: rem(140px);
+  @include mq(sm) {
+    margin-top: rem(90px);
+  }
+}
+
+.section-base__title {
+  font-size: rem(36px);
+  text-align: center;
+  font-weight: bold;
+  @include mq(sm) {
+    font-size: rem(30px);
+  }
+}
+
+// ご利用方法
+.top-about {
+  display: flex;
+  width: 800px;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: rem(40px);
+  @include mq(sm) {
+    display: block;
+  }
+}
+
+.top-about__primary {
+  flex: 1;
+  padding-right: rem(50px);
+  padding-top: rem(30px);
+  @include mq(sm) {
+    padding-right: 0;
+    padding-top: 0;
+  }
+}
+
+.top-about__secondary {
+  width: rem(215px);
+  @include mq(sm) {
+    width: 100%;
+    text-align: center;
+    margin-top: rem(30px);
+  }
+}
+
+.top-about-description {
+  line-height: 2.4;
+  @include mq(sm) {
+    font-size: rem(18px);
+  }
+}

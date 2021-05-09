@@ -56,6 +56,25 @@
         </div>
       </div>
     </div>
+
+    <section class="section-base">
+      <header class="section-base__header">
+        <h2 class="section-base__title">ご利用方法</h2>
+      </header>
+      <div class="width-base">
+        <div class="top-about">
+          <div class="top-about__primary">
+            <p class="top-about-description">
+              気になったWebページのURLやコメントを入力していただいて、<br>後から振り返ったり他の人と共有するなどしてお使いください。<br>また、気になった記事を保存するなどの用途でもお使いいただけます。</p>
+          </div>
+          <div class="top-about__secondary">
+            <div class="top-about-image">
+              <img src="{{ asset('images/about_image.png') }}" width="215" height="237">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </body>
 

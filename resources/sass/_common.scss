@@ -31,6 +31,12 @@ p {
   margin-left: auto;
 }
 
+.pc {
+  @include mq(md) {
+    display: none;
+  }
+}
+
 img {
   max-width: 100%;
   height: auto;
