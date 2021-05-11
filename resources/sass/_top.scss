@@ -74,3 +74,21 @@
     font-size: rem(18px);
   }
 }
+
+// 画面一覧
+.top-list {
+  margin-top: rem(50px);
+}
+
+.footer-area {
+  margin-top: rem(100px);
+  padding-top: rem(15px);
+  padding-bottom: rem(15px);
+}
+
+.copy-right {
+  text-align: center;
+  a {
+    color: inherit;
+  }
+}

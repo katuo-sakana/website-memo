@@ -11123,6 +11123,24 @@ img {
   }
 }
 
+.top-list {
+  margin-top: 3.125rem;
+}
+
+.footer-area {
+  margin-top: 6.25rem;
+  padding-top: 0.9375rem;
+  padding-bottom: 0.9375rem;
+}
+
+.copy-right {
+  text-align: center;
+}
+
+.copy-right a {
+  color: inherit;
+}
+
 .list-box-wrap {
   display: flex;
   flex-wrap: wrap;

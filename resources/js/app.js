@@ -7,6 +7,7 @@
 import "./bootstrap";
 import Vue from "vue";
 import ArticleTagsInput from "./components/ArticleTagsInput";
+import SlickComponent from "./components/SlickComponent";
 
 /**
  * The following block of code may be used to automatically register your
@@ -28,8 +29,9 @@ import ArticleTagsInput from "./components/ArticleTagsInput";
  */
 
 const app = new Vue({
-    el: "#app",
-    components: {
-        ArticleTagsInput
-    }
+  el: "#app",
+  components: {
+    ArticleTagsInput,
+    SlickComponent
+  }
 });
