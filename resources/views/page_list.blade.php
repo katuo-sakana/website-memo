@@ -13,7 +13,7 @@
       <div class="card-body">
         <div class="page-navigation">
           @isset($tag_name)
-            <a class="btn btn-primary page-navigation__item" href="{{ route('home') }}">一覧へ戻る</a>
+            <a class="btn btn-success page-navigation__item" href="{{ route('home') }}">一覧へ戻る</a>
           @endisset
           <a class="btn btn-primary page-navigation__item" href="{{ route('page_register') }}">新規ページをメモする</a>
         </div>
