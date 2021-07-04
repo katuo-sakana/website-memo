@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PagePostRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Page;
 use App\Tag;
@@ -51,21 +52,8 @@ class HomeController extends Controller
         return view('page_register', compact('allTagNames'));
     }
 
-    public function store(Request $request, Page $page)
+    public function store(PagePostRequest $request, Page $page)
     {
-        $validatedData = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'site_image' => [
-                // アップロードされたファイルであること
-                'file',
-                // 画像ファイルであること
-                'image',
-                // MIMEタイプを指定
-                'mimes:jpeg,png',
-            ],
-            'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
-        ]);
-
         $file_name = null;
         if (isset($request->site_image)) {
             $image_path = $request->site_image->store('public');
@@ -126,23 +114,10 @@ class HomeController extends Controller
         return view('page_register', compact('page', 'tagNames', 'allTagNames'));
     }
 
-    public function update(Request $request, $pageid)
+    public function update(PagePostRequest $request, $pageid)
     {
         $user_id = Auth::id();
         $page = Page::find($pageid);
-
-        $validatedData = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'site_image' => [
-                // アップロードされたファイルであること
-                'file',
-                // 画像ファイルであること
-                'image',
-                // MIMEタイプを指定
-                'mimes:jpeg,png',
-            ],
-            'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
-        ]);
 
         if (isset($request->site_image)) {
             $image_path = $request->site_image->store('public');

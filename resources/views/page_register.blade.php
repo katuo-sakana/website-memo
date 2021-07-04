@@ -68,10 +68,17 @@
 
             <div class="col-md-7">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="validatedCustomFile" name="site_image">
+                <input type="file" class="custom-file-input @error('site_image') is-invalid @enderror"
+                  id="validatedCustomFile" name="site_image">
                 <label class="custom-file-label" for="validatedCustomFile">ファイル選択してください</label>
+                @error('site_image')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
             </div>
+
           </div>
 
           @isset($page->site_image)
