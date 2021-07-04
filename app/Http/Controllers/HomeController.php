@@ -54,19 +54,8 @@ class HomeController extends Controller
 
     public function store(PagePostRequest $request, Page $page)
     {
-        $file_name = null;
-        if (isset($request->site_image)) {
-            $image_path = $request->site_image->store('public');
-            $file_name = basename($image_path); // 「public/」を削除して画像名だけを残す
-        }
-
         $user_id = Auth::id();
-        $page->title = $request->title;
-        $page->site_url = $request->site_url;
-        $page->site_image = $file_name;
-        $page->comment = $request->comment;
-        $page->user_id = $user_id;
-        $page->save();
+        $this->upsert($request, $page); // storeとupdateの共通処理関数（返り値：$page->save後の$page）
 
         $tags = collect(json_decode($request->tags))
             ->slice(0, 5) // コレクションの要素が6個以上あったとしても、最初の5個だけが残る
@@ -83,13 +72,13 @@ class HomeController extends Controller
 
     public function show($pageid)
     {
+        $user_id = Auth::id();
         $page = Page::find($pageid);
 
         // タグ情報取得
         $tagNames = $page->tags->map(function ($tag) {
             return ['text' => $tag->name];
         });
-        $user_id = Auth::id();
         // 同じタグが設定してある記事一覧を取得
         $relationTagpages = Page::where('user_id', $user_id)->whereTagPage($tagNames)->get();
 
@@ -119,16 +108,7 @@ class HomeController extends Controller
         $user_id = Auth::id();
         $page = Page::find($pageid);
 
-        if (isset($request->site_image)) {
-            $image_path = $request->site_image->store('public');
-            $file_name = basename($image_path); // 「public/」を削除して画像名だけを残す
-            $page->site_image = $file_name;
-        }
-
-        $page->title = $request->title;
-        $page->site_url = $request->site_url;
-        $page->comment = $request->comment;
-        $page->save();
+        $this->upsert($request, $page); // storeとupdateの共通処理関数（返り値：$page->save後の$page）
 
         $page->tags()->detach();
         $tags = collect(json_decode($request->tags))
@@ -142,6 +122,26 @@ class HomeController extends Controller
         });
 
         return redirect()->route('page_show', ['pageid' => $page->id]);
+    }
+
+    public function upsert($request, $page)
+    {
+        $file_name = null;
+        $user_id = Auth::id();
+
+        if (isset($request->site_image)) {
+            $image_path = $request->site_image->store('public');
+            $file_name = basename($image_path); // 「public/」を削除して画像名だけを残す
+            $page->site_image = $file_name;
+        }
+
+        $page->title = $request->title;
+        $page->site_url = $request->site_url;
+        $page->comment = $request->comment;
+        $page->user_id = $user_id;
+        $page->save();
+
+        return $page;
     }
 
     public function delete($pageid)
