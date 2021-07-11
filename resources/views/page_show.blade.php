@@ -36,7 +36,7 @@
               </div>
             @endif
             @if (!empty($page->comment))
-              <div class="show-content__comment">{{ $page->comment }}</div>
+              <div class="show-content__comment">{!! nl2br(e($page->comment)) !!}</div>
             @endif
           </div>
           <div class="show-content__secondary">
