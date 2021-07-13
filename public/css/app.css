@@ -11225,7 +11225,7 @@ img {
 .show-content {
   display: flex;
   justify-content: space-between;
-  padding-top: 1.875rem;
+  padding-top: 3.125rem;
 }
 
 @media screen and (max-width: 480px) {

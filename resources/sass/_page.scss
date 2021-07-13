@@ -64,7 +64,7 @@
 .show-content {
   display: flex;
   justify-content: space-between;
-  padding-top: rem(30px);
+  padding-top: rem(50px);
   @include mq(sm) {
     display: block;
   }

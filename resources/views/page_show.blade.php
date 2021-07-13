@@ -20,7 +20,7 @@
           <div class="show-content__primary">
             <h1>{{ $page->title }}</h1>
             @if (!empty($page->site_image))
-              <img src="{{ asset('storage/' . $page->site_image) }}">
+              <div class="mt-4"><img src="{{ asset('storage/' . $page->site_image) }}"></div>
             @endif
             <div class="tag-wrap mt-3">
               @foreach ($page->tags as $tag)
